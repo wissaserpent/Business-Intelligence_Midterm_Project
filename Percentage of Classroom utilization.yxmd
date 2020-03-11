@@ -1,0 +1,1193 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>schedules.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="start_time" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="end_time" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="mon" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="tues" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="wed" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="thurs" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="fri" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="sat" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+            <Field name="sun" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\schedules.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="150" y="330" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="start_time" selected="True" type="Int64" size="8" />
+            <SelectField field="end_time" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="546" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[end_time]-[start_time]" field="Time_Scheduled" size="8" type="Int64" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Time_Scheduled = [end_time]-[start_time]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="834" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([mon],"True")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>mon</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 09:27:48</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>True</Operand>
+              <StartDate>2018-10-23 09:27:48</StartDate>
+              <EndDate>2018-10-23 09:27:48</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([mon],"True")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="834" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([tues],"True")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>tues</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 09:29:26</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>True</Operand>
+              <StartDate>2018-10-23 09:29:26</StartDate>
+              <EndDate>2018-10-23 09:29:26</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([tues],"True")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="834" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([wed],"True")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>wed</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 09:31:30</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>True</Operand>
+              <StartDate>2018-10-23 09:31:30</StartDate>
+              <EndDate>2018-10-23 09:31:30</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([wed],"True")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="834" y="450" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([thurs],"True")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>thurs</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 09:32:10</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>True</Operand>
+              <StartDate>2018-10-23 09:32:10</StartDate>
+              <EndDate>2018-10-23 09:32:10</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([thurs],"True")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="846" y="546" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([fri],"True")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>fri</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 09:32:32</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>True</Operand>
+              <StartDate>2018-10-23 09:32:32</StartDate>
+              <EndDate>2018-10-23 09:32:32</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([fri],"True")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="846" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([sat],"True")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>sat</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 09:33:14</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>True</Operand>
+              <StartDate>2018-10-23 09:33:14</StartDate>
+              <EndDate>2018-10-23 09:33:14</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([sat],"True")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="846" y="714" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([sun],"True")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>sun</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 09:33:53</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>True</Operand>
+              <StartDate>2018-10-23 09:33:53</StartDate>
+              <EndDate>2018-10-23 09:33:53</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([sun],"True")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\course_offerings.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>course_offerings.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\course_offerings.csv" type="V_String" />
+            <Field name="course_uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\course_offerings.csv" type="V_String" />
+            <Field name="term_code" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\course_offerings.csv" type="V_String" />
+            <Field name="name" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\course_offerings.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="486" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\sections.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>sections.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\sections.csv" type="V_String" />
+            <Field name="course_offering_uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\sections.csv" type="V_String" />
+            <Field name="section_type" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\sections.csv" type="V_String" />
+            <Field name="number" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\sections.csv" type="V_String" />
+            <Field name="room_uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\sections.csv" type="V_String" />
+            <Field name="schedule_uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\sections.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="174" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="uuid" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="course_offering_uuid" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_uuid" selected="True" rename="course_offe_uuid" />
+                <SelectField field="Left_term_code" selected="True" />
+                <SelectField field="Left_name" selected="True" />
+                <SelectField field="Right_uuid" selected="True" rename="section_uuid" />
+                <SelectField field="Right_course_offering_uuid" selected="True" />
+                <SelectField field="Right_section_type" selected="True" />
+                <SelectField field="Right_room_uuid" selected="True" />
+                <SelectField field="Right_schedule_uuid" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="210" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="uuid" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="schedule_uuid" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_uuid" selected="True" />
+                <SelectField field="Left_start_time" selected="True" />
+                <SelectField field="Left_end_time" selected="True" />
+                <SelectField field="Left_mon" selected="True" />
+                <SelectField field="Left_tues" selected="True" />
+                <SelectField field="Left_wed" selected="True" />
+                <SelectField field="Left_thurs" selected="True" />
+                <SelectField field="Left_fri" selected="True" />
+                <SelectField field="Left_sat" selected="True" />
+                <SelectField field="Left_sun" selected="True" />
+                <SelectField field="Right_term_code" selected="True" />
+                <SelectField field="Right_course_offering_uuid" selected="True" />
+                <SelectField field="Right_section_type" selected="True" />
+                <SelectField field="Right_room_uuid" selected="True" />
+                <SelectField field="Right_schedule_uuid" selected="True" />
+                <SelectField field="Right_facility_code" selected="True" />
+                <SelectField field="Right_room_code" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="174" y="594" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\rooms.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>rooms.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\rooms.csv" type="V_String" />
+            <Field name="facility_code" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\rooms.csv" type="V_String" />
+            <Field name="room_code" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\rooms.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="282" y="558" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="room_uuid" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="uuid" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_course_offe_uuid" selected="True" />
+                <SelectField field="Left_term_code" selected="True" />
+                <SelectField field="Left_name" selected="True" />
+                <SelectField field="Left_section_uuid" selected="True" />
+                <SelectField field="Left_course_offering_uuid" selected="True" />
+                <SelectField field="Left_section_type" selected="True" />
+                <SelectField field="Left_room_uuid" selected="True" />
+                <SelectField field="Left_schedule_uuid" selected="True" />
+                <SelectField field="Right_uuid" selected="True" />
+                <SelectField field="Right_facility_code" selected="True" />
+                <SelectField field="Right_room_code" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\subjects.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>subjects.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="code" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\subjects.csv" type="V_String" />
+            <Field name="name" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\subjects.csv" type="V_String" />
+            <Field name="abbreviation" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\subjects.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\subject_memberships.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>subject_memberships.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="subject_code" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\subject_memberships.csv" type="V_String" />
+            <Field name="course_offering_uuid" size="254" source="File: D:\Nihel\Marquette university\Fall 2018\MSCS 6510 Business Intelligence\Assignments\Ass 1\uw-madison-courses\subject_memberships.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="174" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="code" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="subject_code" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_code" selected="True" />
+                <SelectField field="Left_name" selected="True" rename="Department_name" />
+                <SelectField field="Left_abbreviation" selected="True" />
+                <SelectField field="Right_subject_code" selected="True" />
+                <SelectField field="Right_course_offering_uuid" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="330" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="course_offering_uuid" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="course_offering_uuid" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_Department_name" selected="True" />
+                <SelectField field="Right_start_time" selected="True" />
+                <SelectField field="Right_end_time" selected="True" />
+                <SelectField field="Right_mon" selected="True" />
+                <SelectField field="Right_tues" selected="True" />
+                <SelectField field="Right_wed" selected="True" />
+                <SelectField field="Right_thurs" selected="True" />
+                <SelectField field="Right_fri" selected="True" />
+                <SelectField field="Right_sat" selected="True" />
+                <SelectField field="Right_sun" selected="True" />
+                <SelectField field="Right_term_code" selected="True" />
+                <SelectField field="Right_section_type" selected="True" />
+                <SelectField field="Right_room_uuid" selected="True" />
+                <SelectField field="Right_schedule_uuid" selected="True" />
+                <SelectField field="Right_facility_code" selected="True" />
+                <SelectField field="Right_room_code" selected="True" />
+                <SelectField field="Left_name" selected="False" rename="Department_name" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="222" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([Department_name],"engineer")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>Department_name</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-10-23 16:24:03</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>engineer</Operand>
+              <StartDate>2018-10-23 16:24:03</StartDate>
+              <EndDate>2018-10-23 16:24:03</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([Department_name],"engineer")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="414" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="Department_name" />
+            <Field field="start_time" />
+            <Field field="end_time" />
+            <Field field="mon" />
+            <Field field="tues" />
+            <Field field="wed" />
+            <Field field="thurs" />
+            <Field field="fri" />
+            <Field field="sat" />
+            <Field field="sun" />
+            <Field field="term_code" />
+            <Field field="section_type" />
+            <Field field="room_uuid" />
+            <Field field="schedule_uuid" />
+            <Field field="facility_code" />
+            <Field field="room_code" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Unique: Department_name, start_time, end_time, mon, tues, wed, thurs, fri, sat, sun, term_code, section_type, room_uuid, schedule_uuid, facility_code, room_code</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="654" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Time_Scheduled]/1080" field="% of classroom utilization" size="19.6" type="FixedDecimal" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[% of classroom utilization = [Time_Scheduled]/1080
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="70">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="954" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="term_code" action="GroupBy" rename="Term_code" />
+            <SummarizeField field="room_code" action="GroupBy" rename="Room_code" />
+            <SummarizeField field="Time_Scheduled" action="Sum" rename="Total_Time_Scheduled" />
+            <SummarizeField field="% of classroom utilization" action="Sum" rename="Mon_% of classroom utilization" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="72">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="954" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="term_code" action="GroupBy" rename="Tues_term_code" />
+            <SummarizeField field="room_code" action="GroupBy" rename="Tues_room_code" />
+            <SummarizeField field="Time_Scheduled" action="Sum" rename="Tues_Time_Scheduled" />
+            <SummarizeField field="% of classroom utilization" action="Sum" rename="Tues_% of classroom utilization" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="73">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="954" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="term_code" action="GroupBy" rename="Wed_term_code" />
+            <SummarizeField field="room_code" action="GroupBy" rename="Wed_room_code" />
+            <SummarizeField field="Time_Scheduled" action="Sum" rename="Wed_Time_Scheduled" />
+            <SummarizeField field="% of classroom utilization" action="Sum" rename="Wed_% of classroom utilization" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="74">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="954" y="402" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="term_code" action="GroupBy" rename="Thurs_term_code" />
+            <SummarizeField field="room_code" action="GroupBy" rename="Thurs_room_code" />
+            <SummarizeField field="Time_Scheduled" action="Sum" rename="Thurs_Time_Scheduled" />
+            <SummarizeField field="% of classroom utilization" action="Sum" rename="Thurs_% of classroom utilization" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="75">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="954" y="474" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="term_code" action="GroupBy" rename="Fri_term_code" />
+            <SummarizeField field="room_code" action="GroupBy" rename="Fri_room_code" />
+            <SummarizeField field="Time_Scheduled" action="Sum" rename="Fri_Time_Scheduled" />
+            <SummarizeField field="% of classroom utilization" action="Sum" rename="Fri_% of classroom utilization" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="76">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="954" y="558" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="term_code" action="GroupBy" rename="Sat_term_code" />
+            <SummarizeField field="room_code" action="GroupBy" rename="Sat_room_code" />
+            <SummarizeField field="Time_Scheduled" action="Sum" rename="Sat_Time_Scheduled" />
+            <SummarizeField field="% of classroom utilization" action="Sum" rename="Sat_% of classroom utilization" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="77">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="942" y="642" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="term_code" action="GroupBy" rename="Sun_term_code" />
+            <SummarizeField field="room_code" action="GroupBy" rename="Sun_room_code" />
+            <SummarizeField field="Time_Scheduled" action="Sum" rename="Sun_Time_Scheduled" />
+            <SummarizeField field="% of classroom utilization" action="Sum" rename="Sun_% of classroom utilization" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="80">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
+        <Position x="1086" y="438" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinByRecPos value="True" />
+          <OutputJoinOnly value="False" />
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Input_#1_Term_code" selected="True" />
+                <SelectField field="Input_#1_Room_code" selected="True" />
+                <SelectField field="Input_#1_Total_Time_Scheduled" selected="True" />
+                <SelectField field="Input_#1_Mon_% of classroom utilization" selected="True" />
+                <SelectField field="Input_#2_Tues_term_code" selected="True" />
+                <SelectField field="Input_#2_Tues_room_code" selected="True" />
+                <SelectField field="Input_#2_Tues_Time_Scheduled" selected="True" />
+                <SelectField field="Input_#2_Tues_% of classroom utilization" selected="True" />
+                <SelectField field="Input_#3_Wed_term_code" selected="True" />
+                <SelectField field="Input_#3_Wed_room_code" selected="True" />
+                <SelectField field="Input_#3_Wed_Time_Scheduled" selected="True" />
+                <SelectField field="Input_#3_Wed_% of classroom utilization" selected="True" />
+                <SelectField field="Input_#4_Thurs_term_code" selected="True" />
+                <SelectField field="Input_#4_Thurs_room_code" selected="True" />
+                <SelectField field="Input_#4_Thurs_Time_Scheduled" selected="True" />
+                <SelectField field="Input_#4_Thurs_% of classroom utilization" selected="True" />
+                <SelectField field="Input_#5_Fri_term_code" selected="True" />
+                <SelectField field="Input_#5_Fri_room_code" selected="True" />
+                <SelectField field="Input_#5_Fri_Time_Scheduled" selected="True" />
+                <SelectField field="Input_#5_Fri_% of classroom utilization" selected="True" />
+                <SelectField field="Input_#6_Sat_term_code" selected="True" />
+                <SelectField field="Input_#6_Sat_room_code" selected="True" />
+                <SelectField field="Input_#6_Sat_Time_Scheduled" selected="True" />
+                <SelectField field="Input_#6_Sat_% of classroom utilization" selected="True" />
+                <SelectField field="Input_#7_Sun_term_code" selected="True" />
+                <SelectField field="Input_#7_Sun_room_code" selected="True" />
+                <SelectField field="Input_#7_Sun_Time_Scheduled" selected="True" />
+                <SelectField field="Input_#7_Sun_% of classroom utilization" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
+    </Node>
+    <Node ToolID="81">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1098" y="522" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\Kaffela\AppData\Local\Temp\Engine_20700_d1ccb6074a5f4904914511b94ba6fecd_\Engine_19348_e1d4ee23996640dfb849835e31d3ea8c_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="25" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Join" />
+      <Destination ToolID="25" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="True" />
+      <Destination ToolID="70" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="True" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="True" />
+      <Destination ToolID="73" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="74" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="True" />
+      <Destination ToolID="75" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="True" />
+      <Destination ToolID="76" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="True" />
+      <Destination ToolID="77" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="24" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="24" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Join" />
+      <Destination ToolID="29" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="29" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Join" />
+      <Destination ToolID="41" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="True" />
+      <Destination ToolID="41" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="40" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Join" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Join" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Unique" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="70" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="73" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection name="#5">
+      <Origin ToolID="75" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection name="#6">
+      <Origin ToolID="76" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection name="#7">
+      <Origin ToolID="77" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="81" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Percentage of Classroom utilization</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
